@@ -16,23 +16,20 @@ prev_hip_y = None
 fall_detected = False
 
 
-MODEL_PATH = "models/pose_landmarker.task"
+MODEL_DIR = "models"
+MODEL_PATH = os.path.join(MODEL_DIR, "pose_landmarker.task")
+
 MODEL_URL = "https://drive.google.com/uc?export=download&id=1GsffmrIK38eHwp9u6UfstsDzlx53OUZ4"
 
 def download_model():
     if not os.path.exists(MODEL_PATH):
         print("📥 Model not found. Downloading...")
-        os.makedirs("models", exist_ok=True)
+        os.makedirs(MODEL_DIR, exist_ok=True)
         urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
-        print("✅ Model downloaded successfully!")
+        print(f"✅ Model saved to {MODEL_PATH}")
+download_model()
 
-try:
-    download_model()
-except Exception as e:
-    print("❌ Failed to download model. Please download it manually.")
-    print("Error:", e)
 # Load Model        
-
 base_options = python.BaseOptions(
     # Make sure to download the model and provide the correct path
     model_asset_path=MODEL_PATH
