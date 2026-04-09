@@ -56,7 +56,7 @@ fall-detection-ai/
 ### 1. Clone the repository
 
 ```id="c9ttv1"
-git clone https://github.com/your-username/fall-detection-ai.git
+git clone https://github.com/Madhoor/fall-detection-ai.git
 cd fall-detection-ai
 ```
 
